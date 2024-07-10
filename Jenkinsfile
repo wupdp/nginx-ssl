@@ -25,16 +25,12 @@ pipeline {
             agent { label 'build' }
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'a42e88b7-a731-4f5b-af31-d2a7f624f53d', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh '''
-                        echo $PASSWORD | docker login -u $USERNAME --password-stdin
                         docker tag nginx-ssl:${BUILD_ID} $USERNAME/nginx-ssl:${BUILD_ID}
                         docker tag nginx-ssl:latest $USERNAME/nginx-ssl:latest
                         docker push $USERNAME/nginx-ssl:${BUILD_ID}
                         docker push $USERNAME/nginx-ssl:latest
-                        docker logout
                         '''
-                    }
                 }
             }
         }

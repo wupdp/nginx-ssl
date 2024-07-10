@@ -15,8 +15,8 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    docker build -t nginx-ssl:${BUILD_ID} ./
-                    docker tag nginx-ssl:${BUILD_ID} nginx-ssl:latest
+                    sudo docker build -t nginx-ssl:${BUILD_ID} ./
+                    sudo docker tag nginx-ssl:${BUILD_ID} nginx-ssl:latest
                     '''
                 }
             }
@@ -26,10 +26,10 @@ pipeline {
             steps {
                 script {
                         sh '''
-                        docker tag nginx-ssl:${BUILD_ID} $USERNAME/nginx-ssl:${BUILD_ID}
-                        docker tag nginx-ssl:latest $USERNAME/nginx-ssl:latest
-                        docker push $USERNAME/nginx-ssl:${BUILD_ID}
-                        docker push $USERNAME/nginx-ssl:latest
+                        sudo docker tag nginx-ssl:${BUILD_ID} $USERNAME/nginx-ssl:${BUILD_ID}
+                        sudo docker tag nginx-ssl:latest $USERNAME/nginx-ssl:latest
+                        sudo docker push $USERNAME/nginx-ssl:${BUILD_ID}
+                        sudo docker push $USERNAME/nginx-ssl:latest
                         '''
                 }
             }

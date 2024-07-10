@@ -5,7 +5,7 @@ pipeline {
             agent { label 'build' }
             steps {
                 script {
-                    sh 'rm -rf docker-nginx-apache'
+                    sh 'rm -rf nginx-ssl'
                     sh 'git clone https://github.com/wupdp/nginx-ssl.git'
                 }
             }

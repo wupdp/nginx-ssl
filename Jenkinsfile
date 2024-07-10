@@ -10,7 +10,7 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker Image') {
+        stage('Build Docker Imagee') {
             agent { label 'build' }
             steps {
                 script {

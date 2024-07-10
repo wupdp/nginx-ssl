@@ -26,8 +26,8 @@ pipeline {
             steps {
                 script {
                         sh '''
-                        sudo docker tag nginx-ssl:${BUILD_ID} $USERNAME/nginx-ssl:${BUILD_ID}
-                        sudo docker tag nginx-ssl:latest $USERNAME/nginx-ssl:latest
+                        sudo docker tag nginx-ssl:${BUILD_ID} wupdp/nginx-ssl:${BUILD_ID}
+                        sudo docker tag nginx-ssl:latest wupdp/nginx-ssl:latest
                         sudo docker push wupdp/nginx-ssl:${BUILD_ID}
                         sudo docker push wupdp/nginx-ssl:latest
                         '''

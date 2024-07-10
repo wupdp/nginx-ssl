@@ -38,12 +38,10 @@ pipeline {
             agent { label 'build' }
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'a42e88b7-a731-4f5b-af31-d2a7f624f53d', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh '''
                         kubectl apply -f deploy.yml
                         '''
                     }
-                }
             }
         }
     }
